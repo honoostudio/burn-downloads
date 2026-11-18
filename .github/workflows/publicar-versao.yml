@@ -1,0 +1,33 @@
+# Publica uma versão do Burn como Release (download grátis, sem limite de 100 MB por arquivo).
+# Como usar: num branch "envio-v<versão>", pôr o instalador em pedaços (split -b 90m) em envio/
+# com envio/sha256.txt; ao dar push, este workflow junta, confere, cria a Release e apaga o branch.
+name: Publicar versão do Burn
+on:
+  push:
+    branches: ["envio-v*"]
+permissions:
+  contents: write
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Juntar e conferir o instalador
+        run: |
+          V="${GITHUB_REF_NAME#envio-v}"
+          cat envio/Burn-Project-$V.exe.parte* > "Burn-Project-$V.exe"
+          echo "$(cat envio/sha256.txt)  Burn-Project-$V.exe" | sha256sum -c -
+          ls -la "Burn-Project-$V.exe"
+          echo "V=$V" >> "$GITHUB_ENV"
+      - name: Criar a Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp "Burn Project Biblias livres.burnbib" Burn-Project-Biblias-livres.burnbib
+          gh release create "v$V" "Burn-Project-$V.exe" Burn-Project-Biblias-livres.burnbib \
+            --repo "$GITHUB_REPOSITORY" --target main --latest \
+            --title "Burn Project $V" --notes-file envio/notas.md
+      - name: Apagar o branch de envio
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: git push origin --delete "$GITHUB_REF_NAME"
