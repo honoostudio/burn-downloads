@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Honoo Studio · Portfólio</title>
+<meta name="description" content="Portfólio da Honoo Studio: sites, aplicativos e sistemas sob medida, LEVAV, Burn Project, Ana, KeriEats e placas inteligentes.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Honoo Studio · Portfólio">
+<meta property="og:description" content="Sites, aplicativos e sistemas sob medida. Tecnologia que mantém o fogo aceso.">
+<meta property="og:image" content="img/honoo-icone.png">
+<link rel="icon" href="img/honoo-icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060607; --app:#0d0d0f; --card:#16161a; --card2:#1d1d22; --line:#2a2a31;
+  --text:#f4f2ef; --muted:#a3a0a8; --orange:#ff6a13; --orange2:#ff9a3c; --deep:#c2410c;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5;overflow:hidden}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(60% 50% at 80% 0%,rgba(255,106,19,.18),transparent 70%),radial-gradient(50% 40% at 0% 100%,rgba(255,106,19,.10),transparent 70%);pointer-events:none}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* Moldura de celular no computador; tela cheia no celular */
+@media (max-width:519px){.stage{padding:0!important}}
+.stage{height:100%;display:flex;align-items:center;justify-content:center;gap:56px;padding:24px}
+.side{max-width:340px;display:none}
+.side h1{font-size:44px;line-height:1.05;letter-spacing:-.02em;margin:18px 0 14px}
+.side h1 em{font-style:normal;color:var(--orange)}
+.side p{color:var(--muted)}
+.side .hint{margin-top:22px;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.side .hint i{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange)}
+@media (min-width:900px){.side{display:block}}
+.phone{position:relative;width:100%;height:100%;background:var(--app);overflow:hidden}
+@media (min-width:520px){
+  .phone{width:400px;height:min(840px,calc(100vh - 48px));border-radius:48px;border:10px solid #1b1b1f;box-shadow:0 0 0 1px #333,0 40px 120px rgba(0,0,0,.7),0 0 80px rgba(255,106,19,.12)}
+}
+
+/* Telas */
+.screen{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:0 0 110px;opacity:0;pointer-events:none;transform:translateX(30px);transition:opacity .35s ease,transform .35s cubic-bezier(.2,.8,.2,1);scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.screen.on{opacity:1;pointer-events:auto;transform:none}
+.screen.back{transform:translateX(-30px)}
+
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) 18px 12px;background:linear-gradient(var(--app) 70%,rgba(13,13,15,0));}
+.top .logo{height:20px}
+.top .ttl{font-weight:700;font-size:17px}
+.iconbtn{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center}
+.iconbtn svg{width:20px;height:20px}
+.pad{padding:0 18px}
+
+/* Splash */
+#splash{position:absolute;inset:0;z-index:50;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .6s ease .1s}
+#splash.out{opacity:0;pointer-events:none}
+#splash .k{width:150px;animation:flame 1.8s ease-in-out infinite alternate;filter:drop-shadow(0 0 30px rgba(255,106,19,.55))}
+#splash .l{width:170px;opacity:0;animation:fadeUp .7s ease .5s forwards}
+#splash .tap{position:absolute;bottom:60px;font-size:13px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;opacity:0;animation:fadeUp .6s ease 1.1s forwards}
+@keyframes flame{from{transform:scale(1);filter:drop-shadow(0 0 22px rgba(255,106,19,.45))}to{transform:scale(1.04);filter:drop-shadow(0 0 42px rgba(255,106,19,.8))}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Hero */
+.hero{margin:6px 18px 0;border-radius:28px;padding:26px 22px 22px;background:radial-gradient(120% 90% at 100% 0%,rgba(255,106,19,.55),rgba(255,106,19,0) 60%),linear-gradient(160deg,#1c1c21,#0f0f12);border:1px solid var(--line);position:relative;overflow:hidden}
+.hero .kj{position:absolute;right:-18px;top:-10px;width:150px;opacity:.22}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange2)}
+.hero h1{font-size:31px;line-height:1.08;letter-spacing:-.02em;margin:10px 0 12px;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{color:#d6d3d1;font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{font-size:12.5px;padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#e7e5e4}
+
+.sec{margin:28px 18px 12px;display:flex;align-items:baseline;justify-content:space-between}
+.sec h2{font-size:19px;letter-spacing:-.01em}
+.sec span{font-size:13px;color:var(--muted)}
+
+/* Grade de ícones estilo app */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px;padding:0 14px}
+.app{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;font-size:12px;color:#e7e5e4;line-height:1.2}
+.app .ic{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;background:var(--card2);border:1px solid var(--line);transition:transform .2s;overflow:hidden}
+.app:active .ic{transform:scale(.92)}
+.app .ic svg{width:28px;height:28px;color:var(--orange)}
+.app .ic img{width:70%;height:70%;object-fit:contain}
+.app .ic.or{background:linear-gradient(145deg,var(--orange2),var(--deep));border:0}
+.app .ic.or svg{color:#fff}
+.app .ic.full img{width:100%;height:100%;object-fit:cover}
+
+/* Cartões */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.feature{display:flex;gap:14px;align-items:center;margin:0 18px 12px;padding:16px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+.feature .fi{flex:0 0 52px;height:52px;border-radius:15px;display:grid;place-items:center;background:#000;overflow:hidden}
+.feature .fi img{width:78%;height:78%;object-fit:contain}
+.feature h3{font-size:16px}
+.feature p{font-size:13.5px;color:var(--muted);line-height:1.4}
+.feature .chev{margin-left:auto;color:var(--muted)}
+.feature .chev svg{width:18px;height:18px}
+
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 18px;border-radius:16px;font-weight:700;font-size:15.5px;background:linear-gradient(135deg,var(--orange2),var(--orange) 50%,var(--deep));color:#fff;box-shadow:0 10px 30px rgba(255,106,19,.3)}
+.cta.ghost{background:var(--card);border:1px solid var(--line);box-shadow:none;color:var(--text)}
+.cta svg{width:19px;height:19px}
+
+/* Tela de produto */
+.phero{margin:0 18px;border-radius:28px;padding:24px 20px;background:linear-gradient(160deg,#1d1d22,#0e0e11);border:1px solid var(--line);position:relative;overflow:hidden}
+.phero::after{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,19,.45),transparent 65%)}
+.phero .plogo{height:54px;width:auto;margin-bottom:16px;position:relative;z-index:1}
+.phero h1{font-size:27px;line-height:1.12;letter-spacing:-.015em;margin:8px 0 10px;position:relative;z-index:1}
+.phero p{color:#d6d3d1;font-size:15px;position:relative;z-index:1}
+.list{margin:0 18px;display:grid;gap:10px}
+.li{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:18px;background:var(--card);border:1px solid var(--line);font-size:14.5px}
+.li b{display:block;font-size:15px;margin-bottom:2px}
+.li span{color:var(--muted);font-size:13.5px;line-height:1.4}
+.li .dot{flex:0 0 30px;height:30px;border-radius:10px;background:rgba(255,106,19,.14);display:grid;place-items:center;color:var(--orange)}
+.li .dot svg{width:17px;height:17px}
+
+.shots{display:flex;gap:12px;overflow-x:auto;padding:4px 18px 8px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.shots::-webkit-scrollbar{display:none}
+.shot{flex:0 0 172px;scroll-snap-align:start;border-radius:24px;overflow:hidden;border:6px solid #222228;background:#000;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.shot img{width:100%;aspect-ratio:430/712;object-fit:cover;object-position:top}
+.shot.wide{flex-basis:84%}
+.shot.wide img{aspect-ratio:4/3;object-position:center}
+.cap{font-size:12.5px;color:var(--muted);padding:6px 18px 0}
+
+.quote{margin:0 18px;padding:20px;border-radius:var(--r);background:linear-gradient(135deg,rgba(255,106,19,.16),rgba(255,106,19,.04));border:1px solid rgba(255,106,19,.3)}
+.quote p{font-size:15px}
+.quote small{display:block;margin-top:8px;color:var(--orange2);font-weight:700;font-size:13px}
+
+.steps{margin:0 18px;display:grid;gap:0}
+.step{display:flex;gap:14px;padding-bottom:18px;position:relative}
+.step:not(:last-child)::before{content:"";position:absolute;left:17px;top:38px;bottom:0;width:2px;background:var(--line)}
+.step .n{flex:0 0 36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:grid;place-items:center}
+.step b{display:block;font-size:15.5px}
+.step span{font-size:13.5px;color:var(--muted)}
+
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 18px}
+.mini .card{padding:15px}
+.mini .card b{display:block;font-size:14.5px;margin:8px 0 2px}
+.mini .card span{font-size:12.5px;color:var(--muted);line-height:1.35;display:block}
+.mini svg{width:22px;height:22px;color:var(--orange)}
+
+.case{margin:0 18px 14px;border-radius:24px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.case .cimg{height:190px;background:#000 center top/cover no-repeat;position:relative}
+.case .cimg::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:linear-gradient(transparent,var(--card))}
+.case .cb{padding:4px 18px 18px}
+.case .tag{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange2)}
+.case h3{font-size:18px;margin:4px 0 4px}
+.case p{font-size:13.5px;color:var(--muted)}
+.case .go{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--orange2)}
+.case .go svg{width:15px;height:15px}
+
+.tabs{position:absolute;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:20;display:flex;justify-content:space-around;padding:8px 6px;border-radius:24px;background:rgba(24,24,28,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.08)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:var(--muted);padding:5px 8px;border-radius:14px;min-width:58px;transition:color .2s}
+.tab svg{width:22px;height:22px}
+.tab.on{color:var(--orange)}
+
+.big{font-size:42px;font-weight:800;letter-spacing:-.03em;color:var(--orange);line-height:1}
+.center{text-align:center}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mt24{margin-top:24px}
+.btns{display:grid;gap:10px;margin:22px 18px 0}
+video{width:100%;border-radius:22px;background:#000;display:block;max-height:560px}
+.foot{text-align:center;color:#6b6870;font-size:12px;margin:30px 18px 0}
+.foot img{width:34px;margin:0 auto 8px;opacity:.8}
+.anarow{display:flex;gap:14px;align-items:center}
+.anarow img{width:76px;height:76px;border-radius:50%;border:2px solid var(--orange);flex:0 0 76px}
+.bubble{background:var(--card2);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:12px 14px;font-size:14px}
+.bubble.me{background:var(--orange);border:0;border-radius:18px 18px 4px 18px;margin-left:auto;color:#fff}
+.chat{display:grid;gap:8px;margin:0 18px;max-width:100%}
+.chat .bubble{max-width:82%}
+.screenhead{padding:calc(16px + env(safe-area-inset-top)) 18px 8px}
+.screenhead h1{font-size:28px;letter-spacing:-.02em}
+.screenhead p{color:var(--muted);font-size:14.5px}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="side">
+    <img src="img/honoo-logo-branco.png" alt="Honoo Studio" style="width:170px">
+    <h1>Tecnologia que mantém o <em>fogo aceso</em>.</h1>
+    <p>Este portfólio funciona como um aplicativo. Toque nos ícones e nos botões para conhecer cada serviço da Honoo Studio.</p>
+    <div class="hint"><i></i>Abra no celular para a melhor experiência</div>
+  </div>
+
+  <div class="phone" id="phone">
+    <div id="splash" onclick="hideSplash()">
+      <img class="k" src="img/kanji.png" alt="炎">
+      <img class="l" src="img/honoo-logo-branco.png" alt="Honoo Studio">
+      <div class="tap">Portfólio</div>
+    </div>
+
+    <!-- INÍCIO -->
+    <section class="screen on" data-s="home">
+      <div class="top">
+        <img class="logo" src="img/honoo-logo-branco.png" alt="Honoo Studio">
+        <button class="iconbtn" onclick="go('contato')" aria-label="Contato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+      </div>
+      <div class="hero">
+        <img class="kj" src="img/kanji.png" alt="">
+        <div class="eyebrow">Honoo Studio · Japão</div>
+        <h1>Sites, apps e sistemas que <em>trabalham por você</em>.</h1>
+        <p>Criamos tecnologia sob medida para empresas e igrejas, com a sua marca e no seu idioma.</p>
+        <div class="chips"><span class="chip">Português</span><span class="chip">English</span><span class="chip">日本語</span><span class="chip">100% na nuvem</span></div>
+      </div>
+
+      <div class="sec"><h2>Nossos serviços</h2><span>Toque para abrir</span></div>
+      <div class="grid">
+        <button class="app" onclick="go('sites')"><div class="ic or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg></div>Sites</button>
+        <button class="app" onclick="go('apps')"><div class="ic or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>Apps sob medida</button>
+        <button class="app" onclick="go('levav')"><div class="ic"><img src="img/levav.png" alt=""></div>LEVAV</button>
+        <button class="app" onclick="go('burn')"><div class="ic"><img src="img/burn-chama.png" alt=""></div>Burn Project</button>
+        <button class="app" onclick="go('ana')"><div class="ic full"><img src="img/ana.png" alt=""></div>Ana</button>
+        <button class="app" onclick="go('keri')"><div class="ic"><img src="img/keri-corvo.png" alt=""></div>KeriEats</button>
+        <button class="app" onclick="go('placas')"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg></div>Placas inteligentes</button>
+        <button class="app" onclick="go('sobre')"><div class="ic"><img src="img/kanji.png" alt=""></div>Quem somos</button>
+      </div>
+
+      <div class="sec"><h2>Quer um site?</h2></div>
+      <button class="feature" onclick="go('sites')" style="width:calc(100% - 36px);text-align:left">
+        <div class="fi" style="background:linear-gradient(145deg,var(--orange2),var(--deep))"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M6 6.5h.01M9 6.5h.01"/></svg></div>
+        <div><h3>Veja como criamos o seu site</h3><p>O que está incluído, exemplos reais e as etapas do projeto.</p></div>
+        <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span>
+      </button>
+
+      <div class="sec"><h2>Em destaque</h2><span>Projetos no ar</span></div>
+      <div class="shots">
+        <button class="shot" onclick="go('apps')"><img src="img/aviva-lives.jpg" alt="App Aviva-Nos"></button>
+        <button class="shot" onclick="go('sites')"><img src="img/shot-site.jpg" alt="Site Honoo Studio"></button>
+        <button class="shot" onclick="go('levav')"><img src="img/levav-0.jpg" alt="LEVAV"></button>
+        <button class="shot" onclick="go('ana')"><img src="img/shot-ana.jpg" alt="Ana"></button>
+        <button class="shot" onclick="go('burn')"><img src="img/shot-burn.jpg" alt="Burn Project"></button>
+      </div>
+
+      <div class="quote mt24" style="margin-top:26px">
+        <p>Começamos resolvendo problemas reais da nossa própria comunidade em Hamamatsu. Hoje levamos essas soluções para outros clientes.</p>
+        <small>Honoo Studio</small>
+      </div>
+      <div class="btns"><button class="cta" onclick="go('contato')">Vamos conversar sobre o seu projeto</button></div>
+      <div class="foot"><img src="img/honoo-icone.png" alt="">Honoo Studio · 炎 · honoostudio.com</div>
+    </section>
+
+    <!-- SITES -->
+    <section class="screen" data-s="sites">
+      <div class="top"><button class="iconbtn" onclick="back()" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="ttl">Sites</span><span style="width:40px"></span></div>
+      <div class="phero">
+        <div class="eyebrow">Criação de sites</div>
+        <h1>Um site rápido, bonito e pronto para ser encontrado.</h1>
+        <p>Do site institucional à loja com pedidos e pagamentos, feito com a identidade da sua marca e pensado primeiro para o celular.</p>
+      </div>
+
+      <div class="sec"><h2>O que está incluído</h2></div>
+      <div class="mini">
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/></svg><b>Feito para celular</b><span>Perfeito no celular, no tablet e no computador.</span></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg><b>Sua identidade</b><span>Logo, cores e linguagem visual em cada detalhe.</span></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><b>Pronto para o Google</b><span>SEO, Search Console e prévia bonita ao compartilhar.</span></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg><b>Vários idiomas</b><span>Português, inglês e japonês no mesmo site.</span></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><b>Atendimento 24h</b><span>Opcional: a Ana responde seus visitantes no site.</span></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v16H4zM4 9h16M9 20V9"/></svg><b>Domínio e e-mail</b><span>Ajudamos com o seu endereço próprio e e-mails da marca.</span></div>
+      </div>
+
+      <div class="sec"><h2>Sites que fizemos</h2></div>
+      <div class="case">
+        <div class="cimg" style="background-image:url(img/shot-site.jpg)"></div>
+        <div class="cb"><div class="tag">Site institucional · 3 idiomas</div><h3>honoostudio.com</h3><p>Site da própria Honoo: páginas de produtos, atendimento com a Ana, versões em português, inglês e japonês e otimização para o Google.</p><a class="go" href="https://honoostudio.com" target="_blank" rel="noopener">Abrir o site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </div>
+      <div class="case">
+        <div class="cimg" style="background-image:url(img/shot-aviva.jpg)"></div>
+        <div class="cb"><div class="tag">Site e aplicativo · Igreja</div><h3>avivanoschurch.com</h3><p>Site e aplicativo da Aviva-Nos Church, em Hamamatsu, que se instala direto pelo navegador.</p><a class="go" href="https://avivanoschurch.com" target="_blank" rel="noopener">Abrir o site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </div>
+      <div class="case">
+        <div class="cimg" style="background-image:url(img/shot-levav.jpg)"></div>
+        <div class="cb"><div class="tag">Página de produto</div><h3>LEVAV, Burn Project e Ana</h3><p>Páginas de apresentação com vídeo, perguntas frequentes e botão de conversa.</p><a class="go" href="https://honoostudio.com/levav" target="_blank" rel="noopener">Ver um exemplo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      </div>
+
+      <div class="sec"><h2>Como funciona</h2></div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><b>Conversa inicial</b><span>Entendemos o seu negócio, o público e o objetivo do site.</span></div></div>
+        <div class="step"><div class="n">2</div><div><b>Proposta e protótipo</b><span>Você vê uma primeira versão e aprova o visual e os textos.</span></div></div>
+        <div class="step"><div class="n">3</div><div><b>Construção</b><span>Montamos as páginas, os idiomas e as integrações necessárias.</span></div></div>
+        <div class="step"><div class="n">4</div><div><b>No ar e acompanhamento</b><span>Publicamos no seu domínio e seguimos com ajustes e suporte.</span></div></div>
+      </div>
+      <div class="btns"><button class="cta" onclick="go('contato')">Quero um site assim</button></div>
+    </section>
+
+    <!-- APPS -->
+    <section class="screen" data-s="apps">
+      <div class="top"><button class="iconbtn" onclick="back()" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="ttl">Apps sob medida</span><span style="width:40px"></span></div>
+      <div class="phero">
+        <img class="plogo" src="img/aviva-logo.png" alt="Aviva-Nos Church" style="height:46px">
+        <div class="eyebrow">Caso real · Hamamatsu, Japão</div>
+        <h1>O aplicativo da Aviva-Nos Church.</h1>
+        <p>Uma igreja brasileira no Japão, com membros que falam português e japonês. Criamos um aplicativo completo, que se instala pelo link, sem loja de aplicativos.</p>
+      </div>
+      <div class="sec"><h2>Telas do app</h2><span>Arraste</span></div>
+      <div class="shots">
+        <div class="shot"><img src="img/aviva-lives.jpg" alt=""></div>
+        <div class="shot"><img src="img/shot-aviva.jpg" alt=""></div>
+        <div class="shot"><img src="img/levav-1.jpg" alt=""></div>
+        <div class="shot"><img src="img/levav-3.jpg" alt=""></div>
+      </div>
+      <div class="sec"><h2>O que o app faz</h2></div>
+      <div class="list">
+        <div class="li"><div class="dot">✓</div><div><b>Português e japonês</b><span>Avisos traduzidos automaticamente e notificações no celular.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Tradução ao vivo</b><span>A pregação traduzida em tempo real no celular dos visitantes.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Kids com check-in</b><span>Cadastro das crianças, entrada e saída com segurança.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Escalas automáticas</b><span>Escalas do mês geradas sozinhas e compartilhadas no WhatsApp.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Conteúdos</b><span>Lives, devocionais em vídeo, apostilas e pregações.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Gestão</b><span>Membros, visitantes, tesouraria e permissões por cargo.</span></div></div>
+      </div>
+      <div class="quote mt24"><p>Do Aviva-Nos nasceu o LEVAV, a plataforma que hoje leva o mesmo aplicativo para outras igrejas.</p><small>Do projeto sob medida ao produto</small></div>
+      <div class="sec"><h2>Também desenvolvemos</h2></div>
+      <div class="mini">
+        <div class="card"><b>Sistemas de gestão</b><span>Cadastros, financeiro, relatórios e painéis.</span></div>
+        <div class="card"><b>Pedidos e pagamentos</b><span>Cardápio, carrinho e acompanhamento em tempo real.</span></div>
+        <div class="card"><b>Software para Windows</b><span>Como o Burn Project, publicado na Microsoft Store.</span></div>
+        <div class="card"><b>Inteligência artificial</b><span>Atendimento, tradução e automações.</span></div>
+      </div>
+      <div class="btns"><a class="cta ghost" href="https://avivanoschurch.com" target="_blank" rel="noopener">Abrir avivanoschurch.com</a><button class="cta" onclick="go('contato')">Quero um app para o meu negócio</button></div>
+    </section>
+
+    <!-- LEVAV -->
+    <section class="screen" data-s="levav">
+      <div class="top"><button class="iconbtn" onclick="back()" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="ttl">LEVAV</span><span style="width:40px"></span></div>
+      <div class="phero">
+        <img class="plogo" src="img/levav.png" alt="LEVAV">
+        <div class="eyebrow">Para igrejas · Plataforma</div>
+        <h1>A gestão da igreja na palma da mão.</h1>
+        <p>Um aplicativo com o nome, o logotipo e as cores de cada igreja. Funciona no celular e no computador, sem instalar nada pela loja.</p>
+      </div>
+      <div class="sec"><h2>Telas</h2><span>Arraste</span></div>
+      <div class="shots">
+        <div class="shot"><img src="img/levav-0.jpg" alt=""></div><div class="shot"><img src="img/levav-1.jpg" alt=""></div><div class="shot"><img src="img/levav-2.jpg" alt=""></div><div class="shot"><img src="img/levav-3.jpg" alt=""></div><div class="shot"><img src="img/levav-4.jpg" alt=""></div><div class="shot"><img src="img/levav-5.jpg" alt=""></div><div class="shot"><img src="img/levav-6.jpg" alt=""></div>
+      </div>
+      <div class="sec"><h2>Recursos</h2></div>
+      <div class="list">
+        <div class="li"><div class="dot">✓</div><div><b>Agenda e comunicados</b><span>Com notificações no celular dos membros.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Kids</b><span>Check-in, chamada dos responsáveis e galeria.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Escalas</b><span>Automáticas, com troca de datas entre a equipe.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Gestão completa</b><span>Membros, visitantes, tesouraria, cantina e devocionais.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Três idiomas</b><span>Português, inglês e japonês, com dados separados por igreja.</span></div></div>
+      </div>
+      <div class="btns"><a class="cta ghost" href="https://honoostudio.com/levav" target="_blank" rel="noopener">Conhecer o LEVAV</a><button class="cta" onclick="go('contato')">Pedir uma demonstração</button></div>
+    </section>
+
+    <!-- BURN -->
+    <section class="screen" data-s="burn">
+      <div class="top"><button class="iconbtn" onclick="back()" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="ttl">Burn Project</span><span style="width:40px"></span></div>
+      <div class="phero">
+        <img class="plogo" src="img/burn.png" alt="Burn Project" style="height:70px">
+        <div class="eyebrow">Para igrejas · Windows</div>
+        <h1>A projeção profissional do seu culto.</h1>
+        <p>Letras, Bíblia e telão em tempo real, num software para Windows disponível também na Microsoft Store.</p>
+      </div>
+      <div class="sec"><h2>Recursos</h2></div>
+      <div class="list">
+        <div class="li"><div class="dot">✓</div><div><b>Letras e Bíblia no telão</b><span>Em tempo real, com tradução das músicas.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Editor de cenas</b><span>Camadas, fundos e transições.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Transmissões ao vivo</b><span>Telas e legendas para lives.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Mídia pelo celular</b><span>Fotos e vídeos enviados pelo app da igreja, direto para o telão.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Plano gratuito</b><span>Para começar, com opções Pro e Vitalício.</span></div></div>
+      </div>
+      <div class="quote mt24"><p>LEVAV e Burn funcionam sozinhos, mas juntos formam um ecossistema: do celular ao telão, sem retrabalho.</p><small>Uma só conta para a equipe</small></div>
+      <div class="btns"><a class="cta ghost" href="https://honoostudio.com/burn" target="_blank" rel="noopener">Conhecer o Burn Project</a><button class="cta" onclick="go('contato')">Falar com a Honoo</button></div>
+    </section>
+
+    <!-- ANA -->
+    <section class="screen" data-s="ana">
+      <div class="top"><button class="iconbtn" onclick="back()" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="ttl">Ana</span><span style="width:40px"></span></div>
+      <div class="phero">
+        <div class="anarow" style="position:relative;z-index:1"><img src="img/ana.png" alt="Ana"><div><div class="eyebrow">Para empresas · IA</div><h1 style="font-size:23px;margin:4px 0 0">Uma vendedora que atende 24 horas.</h1></div></div>
+        <p class="mt12">A Ana responde os clientes no site e no Instagram, em qualquer idioma, usando só o que a sua empresa cadastrou.</p>
+      </div>
+      <div class="sec"><h2>Veja na prática</h2><span>23h, num sábado</span></div>
+      <div class="chat" id="chat"></div>
+      <div class="sec"><h2>O que ela faz</h2></div>
+      <div class="list">
+        <div class="li"><div class="dot">✓</div><div><b>Responde na hora</b><span>Produtos, horários e dúvidas, de dia ou de madrugada.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Fala o idioma do cliente</b><span>Português, japonês, inglês e outros. Entende áudio no Direct.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Guarda os contatos</b><span>E avisa a empresa quando aparece um interessado.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Social media</b><span>Publica posts, Reels e Stories e responde comentários.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Passa para uma pessoa</b><span>Quando o assunto precisa de atendimento humano.</span></div></div>
+      </div>
+      <div class="btns"><a class="cta" href="https://honoostudio.com/ana" target="_blank" rel="noopener">Conversar com a Ana agora</a></div>
+    </section>
+
+    <!-- KERIEATS -->
+    <section class="screen" data-s="keri">
+      <div class="top"><button class="iconbtn" onclick="back()" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="ttl">KeriEats</span><span style="width:40px"></span></div>
+      <div class="phero">
+        <img class="plogo" src="img/keri.png" alt="KeriEats" style="height:110px">
+        <div class="eyebrow">Para empresas · Delivery</div>
+        <h1>O delivery com a marca do seu estabelecimento.</h1>
+        <p>Seu próprio aplicativo de pedidos, com o seu cardápio e a sua identidade.</p>
+      </div>
+      <div class="sec"><h2>Recursos</h2></div>
+      <div class="list">
+        <div class="li"><div class="dot">✓</div><div><b>Cardápio com fotos</b><span>Com a identidade visual da sua marca.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Pedidos pelo celular</b><span>O cliente pede sem instalar nada.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Entrega por distância</b><span>Taxa calculada automaticamente.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Tempo real</b><span>Acompanhamento do pedido até a porta.</span></div></div>
+        <div class="li"><div class="dot">✓</div><div><b>Pagamento</b><span>Em dinheiro ou QR Code.</span></div></div>
+      </div>
+      <div class="btns"><button class="cta" onclick="go('contato')">Quero o meu delivery</button></div>
+    </section>
+
+    <!-- PLACAS -->
+    <section class="screen" data-s="placas">
+      <div class="top"><button class="iconbtn" onclick="back()" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="ttl">Placas inteligentes</span><span style="width:40px"></span></div>
+      <div class="shots" style="padding-top:2px"><div class="shot wide"><img src="img/placa-ptja.jpg" alt="Placas inteligentes"></div><div class="shot wide"><img src="img/placa-balcao.jpg" alt="Placa no balcão"></div></div>
+      <div class="phero mt12">
+        <div class="eyebrow">QR Code e NFC</div>
+        <h1>Aponte a câmera ou aproxime o celular.</h1>
+        <p>Display de acrílico para balcão ou mesa, que leva o cliente aonde você quiser.</p>
+      </div>
+      <div class="sec"><h2>Use para</h2></div>
+      <div class="mini">
+        <div class="card"><b>Avaliações no Google</b><span>Mais estrelas no Google Maps.</span></div>
+        <div class="card"><b>Pagamento</b><span>Link ou QR de pagamento.</span></div>
+        <div class="card"><b>Cardápio</b><span>Sempre atualizado, sem reimprimir.</span></div>
+        <div class="card"><b>Instagram</b><span>Mais seguidores direto do balcão.</span></div>
+      </div>
+      <div class="quote mt16"><p>Arte com a sua marca, em português e japonês.</p></div>
+      <div class="btns"><button class="cta" onclick="go('contato')">Quero placas para o meu negócio</button></div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="screen" data-s="projetos">
+      <div class="screenhead"><h1>Projetos</h1><p>Tudo o que está no ar e funcionando.</p></div>
+      <div class="case" onclick="go('apps')"><div class="cimg" style="background-image:url(img/aviva-lives.jpg)"></div><div class="cb"><div class="tag">App sob medida</div><h3>Aviva-Nos Church</h3><p>Aplicativo completo para uma igreja bilíngue no Japão.</p></div></div>
+      <div class="case" onclick="go('sites')"><div class="cimg" style="background-image:url(img/shot-site.jpg)"></div><div class="cb"><div class="tag">Site</div><h3>honoostudio.com</h3><p>Site institucional em três idiomas, com atendimento por IA.</p></div></div>
+      <div class="case" onclick="go('levav')"><div class="cimg" style="background-image:url(img/levav-0.jpg)"></div><div class="cb"><div class="tag">Plataforma</div><h3>LEVAV</h3><p>Aplicativo para igrejas, com a identidade de cada uma.</p></div></div>
+      <div class="case" onclick="go('burn')"><div class="cimg" style="background-image:url(img/shot-burn.jpg)"></div><div class="cb"><div class="tag">Software Windows</div><h3>Burn Project</h3><p>Projeção para igrejas, na Microsoft Store.</p></div></div>
+      <div class="case" onclick="go('ana')"><div class="cimg" style="background-image:url(img/shot-ana.jpg)"></div><div class="cb"><div class="tag">Inteligência artificial</div><h3>Ana</h3><p>Vendedora e social media que trabalha 24 horas.</p></div></div>
+      <div class="case" onclick="go('keri')"><div class="cimg" style="background:#000 url(img/keri.png) center/contain no-repeat;background-size:auto 80%"></div><div class="cb"><div class="tag">Delivery</div><h3>KeriEats</h3><p>Plataforma de pedidos com a marca do estabelecimento.</p></div></div>
+      <div class="case" onclick="go('placas')"><div class="cimg" style="background-image:url(img/placa-ptja.jpg);background-position:center"></div><div class="cb"><div class="tag">No balcão</div><h3>Placas inteligentes</h3><p>QR Code e NFC com a sua marca.</p></div></div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="screen" data-s="sobre">
+      <div class="screenhead"><h1>Quem somos</h1><p>Um estúdio de tecnologia nascido dentro de uma igreja no Japão.</p></div>
+      <div class="phero center">
+        <img src="img/kanji.png" alt="炎" style="width:110px;margin:4px auto 10px;position:relative;z-index:1">
+        <h1 style="font-size:24px">Honoo significa "chama".</h1>
+        <p>Em japonês, honoo é o fogo. É o que queremos ser para cada cliente: tecnologia que mantém o trabalho vivo, todos os dias.</p>
+      </div>
+      <div class="quote mt16"><p>"O fogo arderá continuamente sobre o altar; não se apagará."</p><small>Levítico 6:13</small></div>
+      <div class="sec"><h2>Nossa história em 90 segundos</h2></div>
+      <div class="pad"><video controls playsinline preload="metadata" src="https://honoo-vendas.floot.app/_cdn/static/60a0d3ba-6d63-42ed-8cdf-244d992f14ef-honoo-apresentacao-90s-v5.mp4#t=0.5"></video></div>
+      <div class="sec"><h2>Por que a Honoo</h2></div>
+      <div class="mini">
+        <div class="card"><b>Sob medida</b><span>Projetado para o seu negócio, não o contrário.</span></div>
+        <div class="card"><b>Sua marca</b><span>Identidade aplicada em cada detalhe.</span></div>
+        <div class="card"><b>Bilíngue de verdade</b><span>Português, inglês e japonês.</span></div>
+        <div class="card"><b>Na nuvem</b><span>Sem servidor próprio, sempre atualizado.</span></div>
+        <div class="card"><b>Dados seguros</b><span>Isolados por cliente, acesso por função.</span></div>
+        <div class="card"><b>Tudo conectado</b><span>App, site e telão integrados.</span></div>
+      </div>
+      <div class="btns"><button class="cta" onclick="go('contato')">Falar com a Honoo</button></div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="screen" data-s="contato">
+      <div class="screenhead"><h1>Vamos construir juntos</h1><p>A primeira conversa é gratuita e sem compromisso.</p></div>
+      <div class="phero">
+        <div class="anarow" style="position:relative;z-index:1"><img src="img/ana.png" alt="Ana"><div><b style="font-size:17px">Fale com a Ana</b><p style="font-size:14px;color:#d6d3d1">Nossa assistente responde na hora e passa o seu contato para a equipe.</p></div></div>
+        <a class="cta mt16" href="https://honoostudio.com/?lang=pt" target="_blank" rel="noopener" style="position:relative;z-index:1">Abrir o chat no site</a>
+      </div>
+      <div class="list mt16">
+        <a class="li" href="mailto:contact@honoostudio.com"><div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div><div><b>E-mail</b><span>contact@honoostudio.com</span></div></a>
+        <a class="li" href="https://instagram.com/honoostudio" target="_blank" rel="noopener"><div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></div><div><b>Instagram</b><span>@honoostudio</span></div></a>
+        <a class="li" href="https://honoostudio.com" target="_blank" rel="noopener"><div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg></div><div><b>Site</b><span>honoostudio.com</span></div></a>
+      </div>
+      <div class="sec"><h2>Como trabalhamos</h2></div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><b>Diagnóstico</b><span>Entendemos o seu negócio e o que fará diferença.</span></div></div>
+        <div class="step"><div class="n">2</div><div><b>Protótipo e implantação</b><span>Você testa uma primeira versão com a sua identidade.</span></div></div>
+        <div class="step"><div class="n">3</div><div><b>Treinamento e suporte</b><span>Publicamos, treinamos a equipe e seguimos evoluindo.</span></div></div>
+      </div>
+      <div class="foot"><img src="img/honoo-icone.png" alt="">Honoo Studio · Hamamatsu, Japão</div>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab on" data-t="home" onclick="tab('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>Início</button>
+      <button class="tab" data-t="projetos" onclick="tab('projetos')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Projetos</button>
+      <button class="tab" data-t="sobre" onclick="tab('sobre')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3-1-5 0-8z"/></svg>Sobre</button>
+      <button class="tab" data-t="contato" onclick="tab('contato')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contato</button>
+    </nav>
+  </div>
+</div>
+<script>
+const TABS=['home','projetos','sobre','contato'];
+let hist=[];let cur='home';
+function show(id,dir){
+  if(id===cur) return;
+  const a=document.querySelector(`[data-s="${cur}"]`),b=document.querySelector(`[data-s="${id}"]`);
+  if(!b) return;
+  document.querySelectorAll('.screen').forEach(x=>{if(x!==b){x.classList.remove('on')}});
+  a.classList.toggle('back',dir!=='back');
+  b.classList.remove('back');b.scrollTop=0;b.classList.add('on');
+  cur=id;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.t===(TABS.includes(id)?id:lastTab)));
+  if(id==='ana') runChat();
+  try{history.replaceState(null,'','#'+id)}catch(e){}
+}
+let lastTab='home';
+function go(id){hist.push(cur);if(TABS.includes(id))lastTab=id;show(id)}
+function back(){show(hist.pop()||'home','back')}
+function tab(id){hist=[];lastTab=id;show(id)}
+function hideSplash(){document.getElementById('splash').classList.add('out')}
+setTimeout(hideSplash,1900);
+const CHAT=[[0,'Oi! Vocês fazem site para restaurante?'],[1,'Oi! Fazemos sim. Criamos o site com a sua marca, cardápio, mapa e botão de pedido. Quer que eu passe o seu contato para a equipe?'],[0,'Quero! Pode ser amanhã de manhã?'],[1,'Combinado. Anotei aqui e a equipe fala com você amanhã cedo.']];
+let chatDone=false;
+function runChat(){
+  if(chatDone) return;chatDone=true;
+  const box=document.getElementById('chat');
+  CHAT.forEach(([who,txt],i)=>setTimeout(()=>{
+    const d=document.createElement('div');d.className='bubble'+(who===0?' me':'');d.textContent=txt;
+    d.style.animation='fadeUp .4s ease both';box.appendChild(d);
+  },400+i*1100));
+}
+const start=(location.hash||'').slice(1);
+if(start&&document.querySelector(`[data-s="${start}"]`)&&start!=='home'){hist=['home'];if(TABS.includes(start))lastTab=start;show(start)}
+</script>
+</body>
+</html>
